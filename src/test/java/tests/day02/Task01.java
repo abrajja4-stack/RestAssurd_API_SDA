@@ -1,4 +1,4 @@
-package day02;
+package tests.day02;
 
 import base_urls.BookersBaseUrl;
 import io.restassured.http.ContentType;

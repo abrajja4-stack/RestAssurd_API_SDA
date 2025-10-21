@@ -1,4 +1,4 @@
-package day03.assignment;
+package tests.day03.assignment;
 
 import base_urls.ActivitiesAPIBaseUrl;
 import io.restassured.response.Response;

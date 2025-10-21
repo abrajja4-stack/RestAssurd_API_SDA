@@ -1,4 +1,4 @@
-package day03;
+package tests.day03;
 
 import base_urls.PetStoreUserBaseUrl;
 import io.restassured.response.Response;

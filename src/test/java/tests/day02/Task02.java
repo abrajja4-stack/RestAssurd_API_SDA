@@ -1,4 +1,4 @@
-package day02;
+package tests.day02;
 
 import base_urls.JPHBaseUrl;
 import io.restassured.path.json.JsonPath;
