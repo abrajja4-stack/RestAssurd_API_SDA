@@ -1,12 +1,16 @@
 package tests.day04;
 
 import base_urls.PetBaseUrl;
+import base_urls.RandomUserBaseUrl;
 import io.restassured.response.Response;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+import pojo.ResponseRandomUser;
+import utilities.ObjectMapperUtils;
 
 import static io.restassured.RestAssured.given;
 
-public class RandomUser{
+public class RandomUser extends RandomUserBaseUrl {
     /*
      Task 1: Random User API - GET Request with POJO Deserialization
     Objective: Write an automation test that validates user data from a random user API endpoint.
@@ -21,4 +25,18 @@ public class RandomUser{
     Medium picture URL
      */
 
+    @Test
+    public void testRandomuser() {
+Response response = given(spec).get("/api");
+response.prettyPrint();
+
+        ResponseRandomUser actualData = ObjectMapperUtils.convertJsonToJava(response.asString(),ResponseRandomUser.class);
+
+        Assert.assertNotNull(actualData.getResults().getFirst().getEmail());
+        Assert.assertNotNull(actualData.getResults().getFirst().getLogin().getPassword());
+        Assert.assertNotNull(actualData.getResults().getFirst().getLogin().getUsername());
+        Assert.assertNotNull(actualData.getResults().getFirst().getPicture().getMedium());
+
+    }
+}
 
